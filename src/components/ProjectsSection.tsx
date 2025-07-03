@@ -15,22 +15,22 @@ const ProjectsSection = () => {
     },
     {
       title: "Disaster Response Training Tool",
-      description: "An interactive web-based simulation platform for training in emergency scenarios.",
+      description: "The Disaster Response Training Tool is an interactive web-based platform designed to enhance disaster preparedness and response training. It provides users with realistic simulations, decision-making scenarios, and educational resources to improve their ability to handle emergency situations effectively.",
       tags: ["HTML", "CSS", "JavaScript", "Gemini API"],
       liveLink: "https://disaster-response-traning-tool.vercel.app/",
-      githubLink: "https://disaster-response-traning-tool.vercel.app/",
+      githubLink: "https://github.com/Mrigank005/Disaster_Response_Traning_Tool/",
       type: "Live Demo"
     },
     {
       title: "Optical Character Recognition (OCR)",
-      description: "Python tool using Tesseract OCR to extract text from images and save them as .txt files.",
+      description: "This Python script automates the extraction of text from images using Tesseract OCR. It processes all provided images and saves the extracted text as .txt files",
       tags: ["Python", "Tesseract", "OCR"],
       githubLink: "https://github.com/Mrigank005/OCR",
       type: "GitHub"
     },
     {
       title: "Rubric Generator",
-      description: "Machine learning model that generates grading rubrics from questions and sample answers.",
+      description: "A machine learning model designed to generate grading rubrics based on a given question and a sample answer. The model has been fine-tuned on custom data and implemented in a Jupyter Notebook.",
       tags: ["Machine Learning", "Python", "NLP"],
       liveLink: "https://huggingface.co/Mrigank005/Rubric_Generator",
       githubLink: "https://github.com/Mrigank005/Rubric_Generator",
