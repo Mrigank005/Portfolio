@@ -25,11 +25,6 @@ const ContactSection = () => {
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/mrigank005"
     },
-    { 
-      icon: <Instagram className="h-5 w-5" />, 
-      title: "Instagram",
-      link: "https://www.instagram.com/_._mrigank"
-    },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
