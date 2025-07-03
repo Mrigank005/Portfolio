@@ -23,7 +23,12 @@ const ContactSection = () => {
     { 
       icon: <Linkedin className="h-5 w-5" />, 
       title: "LinkedIn",
-      link: "https://linkedin.com/in/mrigank-singh-1899bb31b"
+      link: "https://www.linkedin.com/in/mrigank005"
+    },
+    { 
+      icon: <Instagram className="h-5 w-5" />, 
+      title: "Instagram",
+      link: "https://www.instagram.com/_._mrigank"
     },
   ];
 
