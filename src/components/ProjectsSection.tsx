@@ -19,7 +19,7 @@ const ProjectsSection = () => {
       tags: ["HTML", "CSS", "JavaScript", "Gemini API"],
       liveLink: "https://disaster-response-traning-tool.vercel.app/",
       githubLink: "https://github.com/Mrigank005/Disaster_Response_Traning_Tool/",
-      type: "Live Demo"
+      type: "Live Website"
     },
     {
       title: "Optical Character Recognition (OCR)",
