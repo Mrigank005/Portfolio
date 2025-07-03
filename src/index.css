@@ -1,0 +1,97 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 0 54% 70%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 21 100% 76%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 54% 70%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 92%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 54% 70%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-deep-charcoal text-foreground font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at top left, #1a1a1a 0%, #1a1a1a 50%), 
+                       radial-gradient(circle at bottom right, #2a2a2a 0%, #1a1a1a 50%);
+    background-attachment: fixed;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-space;
+  }
+
+  .glassmorphism {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-lg;
+  }
+  
+  .cosmic-card {
+    @apply glassmorphism relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,107,107,0.5)] hover:-translate-y-1;
+  }
+  
+  .cosmic-button {
+    @apply px-4 py-3 sm:px-6 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(255,107,107,0.5)] text-center;
+  }
+  
+  .cosmic-primary-button {
+    @apply cosmic-button bg-sunset-coral text-deep-charcoal hover:bg-muted-peach;
+  }
+  
+  .cosmic-secondary-button {
+    @apply cosmic-button glassmorphism text-warm-light-gray hover:bg-white/10;
+  }
+  
+  .star {
+    @apply absolute bg-soft-goldenrod rounded-full;
+  }
+  
+  .planet {
+    @apply absolute rounded-full;
+  }
+
+  /* Responsive improvements */
+  .container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Mobile-first responsive text */
+  @media (max-width: 640px) {
+    .cosmic-button {
+      @apply text-sm px-4 py-2;
+    }
+  }
+}
