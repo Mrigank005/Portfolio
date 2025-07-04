@@ -8,7 +8,7 @@ const ProjectsSection = () => {
     {
       title: "Bubble Labyrinth",
       description: "A puzzle-platformer built at Global Game Jam 2025 (UPES Dehradun). Navigate a maze using bubble mechanics.",
-      tags: ["Unity", "C#", "Game Development"],
+      tags: ["Unity", "C#", "Game Development", "Global Game Jam"],
       liveLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
       githubLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
       type: "Game Link"
@@ -24,14 +24,14 @@ const ProjectsSection = () => {
     {
       title: "Optical Character Recognition (OCR)",
       description: "This Python script automates the extraction of text from images using Tesseract OCR. It processes all provided images and saves the extracted text as .txt files",
-      tags: ["Python", "Tesseract", "OCR"],
+      tags: ["Python", "Tesseract", "OCR", "Image Processing", "Text Extraction", "Image to Text"],
       githubLink: "https://github.com/Mrigank005/OCR",
       type: "GitHub"
     },
     {
       title: "Rubric Generator",
       description: "A machine learning model designed to generate grading rubrics based on a given question and a sample answer. The model has been fine-tuned on custom data and implemented in a Jupyter Notebook.",
-      tags: ["Machine Learning", "Python", "NLP"],
+      tags: ["Machine Learning", "Python", "Jupyter Notebook", "Text Generation", "Custom Model", "FInetuned Model"],
       liveLink: "https://huggingface.co/Mrigank005/Rubric_Generator",
       githubLink: "https://github.com/Mrigank005/Rubric_Generator",
       type: "Hugging Face"
