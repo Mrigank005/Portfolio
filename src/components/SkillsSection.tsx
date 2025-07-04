@@ -13,7 +13,7 @@ const SkillsSection = () => {
     {
       title: "AI / ML Tools and Libraries",
       icon: <Telescope className="h-6 w-6" />,
-      skills: ["TensorFlow", "PyTorch", "scikit-learn", "NumPy", "Pandas", "Matplotlib", "Hugging Face", "OpenAI API", "DeepSeek API", "LLaMA", "Jupyter Notebook"],
+      skills: ["TensorFlow", "PyTorch", "scikit-learn", "NumPy", "Pandas", "Matplotlib", "Hugging Face", "OpenAI API", "Gemini API", "LLaMA", "Model Distillation", "Jupyter Notebook"],
     },
     {
       title: "Tools & Platforms",
