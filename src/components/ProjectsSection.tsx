@@ -30,7 +30,7 @@ const ProjectsSection = () => {
     {
       title: "Rubric Generator",
       description: "A machine learning model designed to generate grading rubrics based on a given question and a sample answer. The model has been fine-tuned on custom data and implemented in a Jupyter Notebook.",
-      tags: ["Machine Learning", "Python", "Jupyter Notebook", "Text Generation", "Custom Model", "FInetuned Model"],
+      tags: ["Machine Learning", "Python", "Jupyter Notebook", "Text Generation", "Custom FInetuned Model"],
       liveLink: "https://huggingface.co/Mrigank005/Rubric_Generator",
       githubLink: "https://github.com/Mrigank005/Rubric_Generator",
       type: "Hugging Face"
