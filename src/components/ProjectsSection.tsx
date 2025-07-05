@@ -14,10 +14,10 @@ const ProjectsSection = () => {
     },
     {
       title: "Disaster Response Training Tool",
-      description: "The Disaster Response Training Tool is an interactive web-based platform designed to enhance disaster preparedness and response training. It provides users with realistic simulations, decision-making scenarios, and educational resources to improve their ability to handle emergency situations effectively.",
-      tags: ["HTML", "CSS", "JavaScript", "Gemini API"],
+      description: "The Disaster Response Training Tool is an interactive web-based platform designed at a Hackathon to enhance disaster preparedness and response training. It provides users with realistic simulations, decision-making scenarios, and educational resources to improve their ability to handle emergency situations effectively.",
+      tags: ["HTML", "Javascript", "CSS", "Gemini API", "Vercel Deployment", "Responsive Website", "AI Chatbot"],
       liveLink: "https://disaster-response-traning-tool.vercel.app/",
-      githubLink: "https://github.com/Mrigank005/Disaster_Response_Traning_Tool/",
+      githubLink: "https://github.com/Mrigank005/Disaster_Response_Traning_Tool",
       type: "Live Website"
     },
     {
@@ -41,14 +41,6 @@ const ProjectsSection = () => {
       tags: ["Developer Portfolio", "React", "Tailwind CSS", "Vercel Deployment", "Responsive Website"],
       liveLink: "https://mrigank-portfolio-website.vercel.app/",
       githubLink: "https://github.com/Mrigank005/Portfolio",
-      type: "Live Website"
-    },
-    {
-      title: "Disaster Response Training Tool",
-      description: "The Disaster Response Training Tool is an interactive web-based platform designed at a Hackathon to enhance disaster preparedness and response training. It provides users with realistic simulations, decision-making scenarios, and educational resources to improve their ability to handle emergency situations effectively.",
-      tags: ["HTML", "Javascript", "CSS", "Gemini API", "Vercel Deployment", "Responsive Website", "AI Chatbot"],
-      liveLink: "https://disaster-response-traning-tool.vercel.app/",
-      githubLink: "https://github.com/Mrigank005/Disaster_Response_Traning_Tool",
       type: "Live Website"
     }
   ];
