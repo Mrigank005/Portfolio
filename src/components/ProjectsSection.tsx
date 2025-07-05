@@ -14,8 +14,8 @@ const ProjectsSection = () => {
     },
     {
       title: "Bubble Labyrinth",
-      description: "A puzzle-platformer built at Global Game Jam 2025 (UPES Dehradun). Navigate a maze using bubble mechanics.",
-      tags: ["Unity", "C#", "Game Development", "Global Game Jam"],
+      description: "A 3D puzzle-platformer built during Global Game Jam 2025. Navigate complex mazes using physics-based bubble mechanics. ",
+      tags: ["Unity", "C#", "3D Game", "Game Development", "Global Game Jam"],
       liveLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
       githubLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
       type: "Game Link"
