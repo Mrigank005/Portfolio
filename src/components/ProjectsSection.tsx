@@ -5,20 +5,20 @@ import { ExternalLink, Github } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Bubble Labyrinth",
-      description: "A puzzle-platformer built at Global Game Jam 2025 (UPES Dehradun). Navigate a maze using bubble mechanics.",
-      tags: ["Unity", "C#", "Game Development", "Global Game Jam"],
-      liveLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
-      githubLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
-      type: "Game Link"
-    },
-    {
       title: "Personal Portfolio Website",
       description: "A personal portfolio website, built to showcase my projects, skills, experience, and achievements as a developer and creative technologist.",
       tags: ["Developer Portfolio", "React", "Tailwind CSS", "Vercel Deployment", "Responsive Website"],
       liveLink: "https://mrigank-portfolio-website.vercel.app/",
       githubLink: "https://github.com/Mrigank005/Portfolio",
       type: "Live Website"
+    },
+    {
+      title: "Bubble Labyrinth",
+      description: "A puzzle-platformer built at Global Game Jam 2025 (UPES Dehradun). Navigate a maze using bubble mechanics.",
+      tags: ["Unity", "C#", "Game Development", "Global Game Jam"],
+      liveLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
+      githubLink: "https://globalgamejam.org/games/2025/bubble-labyrinth-9",
+      type: "Game Link"
     },
     {
       title: "Optical Character Recognition (OCR)",
