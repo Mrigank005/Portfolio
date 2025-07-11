@@ -30,7 +30,7 @@ const ProjectsSection = () => {
     {
       title: "Rubric Generator",
       description: "A machine learning model designed to generate grading rubrics based on a given question and a sample answer. The model has been fine-tuned on custom data and implemented in a Jupyter Notebook.",
-      tags: ["Machine Learning", "Python", "Jupyter Notebook", "Text Generation", "Custom FInetuned Model"],
+      tags: ["Machine Learning", "Python", "Jupyter Notebook", "Text Generation", "Custom FInetuned Model", "LLaMA"],
       liveLink: "https://huggingface.co/Mrigank005/Rubric_Generator",
       githubLink: "https://github.com/Mrigank005/Rubric_Generator",
       type: "Hugging Face"
@@ -42,7 +42,15 @@ const ProjectsSection = () => {
       liveLink: "https://disaster-response-traning-tool.vercel.app/",
       githubLink: "https://github.com/Mrigank005/Disaster_Response_Traning_Tool",
       type: "Live Website"
-    }
+    },
+    {
+      title: "NeoTutor",
+      description: "NeoTutor is an interactive AI Agents powered tutoring system built using LLaMA-3 and LangGraph. It delivers adaptive questions, structured feedback, personalized practice, and real-time progress tracking — all within a Jupyter Notebook. Perfect for learners seeking an engaging and intelligent self-paced learning assistant.",
+      tags: ["Python", "LLaMA", "LangGraph", "Transformers", "Jupyter Notebook", "Hugging Face", "Google Colab"],
+      liveLink: "https://colab.research.google.com/drive/1X4QwSB48fddXATlJBYtab16l7TM72KZk?usp=sharing",
+      githubLink: "https://github.com/Mrigank005/NeoTutor",
+      type: "Colab Notebook"
+      }
   ];
 
   return (
