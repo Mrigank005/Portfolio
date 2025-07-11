@@ -46,7 +46,7 @@ const ProjectsSection = () => {
     {
       title: "NeoTutor",
       description: "NeoTutor is an interactive AI Agents powered tutoring system built using LLaMA-3 and LangGraph. It delivers adaptive questions, structured feedback, personalized practice, and real-time progress tracking — all within a Jupyter Notebook. Perfect for learners seeking an engaging and intelligent self-paced learning assistant.",
-      tags: ["Python", "LLaMA", "LangGraph", "Transformers", "Jupyter Notebook", "Hugging Face", "Google Colab"],
+      tags: ["Python", "LLaMA", "LangGraph", "Transformers", "Jupyter Notebook", "Google Colab"],
       liveLink: "https://colab.research.google.com/drive/1X4QwSB48fddXATlJBYtab16l7TM72KZk?usp=sharing",
       githubLink: "https://github.com/Mrigank005/NeoTutor",
       type: "Colab Notebook"
