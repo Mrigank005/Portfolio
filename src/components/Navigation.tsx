@@ -51,7 +51,7 @@ const Navigation = () => {
             </a>
           ))}
           <a 
-            href="https://drive.google.com/file/d/1HrV9PI5mA8kXHC-U5_4hdS7J71Cy7Q7j/view?usp=sharing" 
+            href="https://drive.google.com/file/d/16GKbLN8_OpnhnweKEPBaWwHrxuatt6Ny/preview" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="cosmic-secondary-button text-sm"
@@ -89,7 +89,7 @@ const Navigation = () => {
             </a>
           ))}
           <a 
-            href="https://drive.google.com/file/d/1HrV9PI5mA8kXHC-U5_4hdS7J71Cy7Q7j/view?usp=sharing" 
+            href="https://drive.google.com/file/d/16GKbLN8_OpnhnweKEPBaWwHrxuatt6Ny/preview" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="cosmic-secondary-button self-start my-2 text-sm"
