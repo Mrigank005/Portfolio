@@ -1,72 +1,84 @@
-
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Rocket, Telescope, Moon, Star } from "lucide-react";
+import { VerticalAccordion, AccordionItem } from "@/components/ui/VerticalAccordion";
+import { FiCode, FiMonitor, FiServer, FiCpu } from "react-icons/fi";
 
 const SkillsSection = () => {
-  const skillCategories = [
+  const skillCategories: AccordionItem[] = [
     {
-      title: "Tech Stack",
-      icon: <Rocket className="h-6 w-6" />,
-      skills: ["Python", "C", "Shell Scripting", "JavaScript", "TypeScript", "HTML", "CSS", "React", "Next.js", "Tailwind CSS"],
+      id: 1,
+      title: "Core Languages",
+      Icon: FiCode,
+      skills: [
+        { name: "C", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+        { name: "C++", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+        { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      ],
     },
     {
-      title: "AI / ML Tools and Libraries",
-      icon: <Telescope className="h-6 w-6" />,
-      skills: ["TensorFlow", "PyTorch", "scikit-learn", "NumPy", "Pandas", "Matplotlib", "Hugging Face", "OpenAI API", "Gemini API", "LLaMA", "Model Distillation", "Jupyter Notebook"],
+      id: 2,
+      title: "Frontend Development",
+      Icon: FiMonitor,
+      skills: [
+        { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+        { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+        { name: "Vite.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
+        { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      ],
     },
     {
-      title: "Tools & Platforms",
-      icon: <Moon className="h-6 w-6" />,
-      skills: ["Git", "GitHub", "VS Code", "Google Colab", "Canva", "Google Workspace", "MS Office", "Vercel", "AWS (S3, CloudFront)", "GCP", "Azure"],
+      id: 3,
+      title: "Backend Development",
+      Icon: FiServer,
+      skills: [
+        { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "SQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "Qdrant", logo: "https://qdrant.tech/img/logo.svg" },
+        { name: "Neo4j", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg" },
+        { name: "AWS S3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+        { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      ],
     },
     {
-      title: "Soft Skills",
-      icon: <Star className="h-6 w-6" />,
-      skills: ["Problem Solving", "Creativity", "Analytical Thinking", "Leadership", "Collaboration", "Resilience", "Accountability", "Organizational Skills", "Multitasking"],
+      id: 4,
+      title: "AI/ML",
+      Icon: FiCpu,
+      skills: [
+        { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "PyTorch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+        { name: "Scikit-learn", logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+        { name: "LangChain", logo: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4" },
+        { name: "LangGraph", logo: "https://avatars.githubusercontent.com/u/126733545?s=200&v=4" },
+        { name: "OpenAI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" },
+        { name: "Hugging Face", logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
+        { name: "NLP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      ],
     },
   ];
 
   return (
     <section id="skills" className="py-20 relative">
-      {/* Orbit animation */}
-      <div className="absolute w-24 h-24 border border-space-purple/10 rounded-full top-1/4 left-1/4">
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-space-purple/60 rounded-full animate-orbit"></div>
+      {/* Decorative elements */}
+      <div className="absolute w-24 h-24 border border-sunset-coral/10 rounded-full top-1/4 left-1/4">
+        <div className="absolute -top-1 -left-1 w-2 h-2 bg-sunset-coral/60 rounded-full animate-orbit"></div>
       </div>
-      <div className="absolute w-32 h-32 border border-space-violet/10 rounded-full bottom-1/3 right-1/4">
-        <div className="absolute -top-1 -left-1 w-2 h-2 bg-space-violet/60 rounded-full animate-orbit" style={{animationDuration: '20s'}}></div>
+      <div className="absolute w-32 h-32 border border-muted-peach/10 rounded-full bottom-1/3 right-1/4">
+        <div className="absolute -top-1 -left-1 w-2 h-2 bg-muted-peach/60 rounded-full animate-orbit" style={{animationDuration: '20s'}}></div>
       </div>
       
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="bg-gradient-to-r from-space-purple to-space-violet bg-clip-text text-transparent">Skills</span>
+          My <span className="bg-gradient-to-r from-sunset-coral to-muted-peach bg-clip-text text-transparent">Skills</span>
         </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories && skillCategories.map((category, index) => (
-            <Card key={index} className="cosmic-card h-full">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-full glassmorphism text-space-purple">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-medium text-white">{category.title}</h3>
-                </div>
-                
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {category.skills && category.skills.map((skill, idx) => (
-                    <span 
-                      key={idx} 
-                      className="px-3 py-1 text-sm rounded-full glassmorphism text-white/90 hover:bg-space-purple/20 transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <VerticalAccordion items={skillCategories} />
       </div>
     </section>
   );
