@@ -54,16 +54,41 @@ interface VerticalAccordionProps {
 
 export const VerticalAccordion: React.FC<VerticalAccordionProps> = ({ items }) => {
   const [open, setOpen] = useState(items[0].id);
+  const [isHovering, setIsHovering] = useState(false);
+
+  // Auto-rotation effect
+  useEffect(() => {
+    if (isHovering) return; // Pause when hovering
+
+    const interval = setInterval(() => {
+      setOpen((currentOpen) => {
+        const currentIndex = items.findIndex(item => item.id === currentOpen);
+        const nextIndex = (currentIndex + 1) % items.length;
+        return items[nextIndex].id;
+      });
+    }, 5000); // 5 seconds
+
+    return () => clearInterval(interval);
+  }, [items, isHovering]);
+
+  const handleManualChange = (id: number) => {
+    setOpen(id);
+    // Timer will automatically reset due to useEffect dependency
+  };
 
   return (
     <section className="p-4 w-full h-full">
-      <div className="flex flex-col lg:flex-row h-fit lg:h-[500px] w-full max-w-7xl mx-auto overflow-hidden rounded-2xl border border-warm-light-gray/10">
+      <div 
+        className="flex flex-col lg:flex-row h-fit lg:h-[500px] w-full max-w-7xl mx-auto overflow-hidden rounded-2xl border border-warm-light-gray/10"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
         {items.map((item) => {
           return (
             <Panel
               key={item.id}
               open={open}
-              setOpen={setOpen}
+              setOpen={handleManualChange}
               id={item.id}
               Icon={item.Icon}
               title={item.title}

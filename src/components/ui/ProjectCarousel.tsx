@@ -57,6 +57,12 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
+  const [isHovering, setIsHovering] = React.useState(false);
+  const animationFrameRef = React.useRef<number | null>(null);
+  const scrollSpeedRef = React.useRef(0.5); // pixels per frame
+
+  // Duplicate items for infinite scroll
+  const duplicatedItems = [...items, ...items];
 
   const checkScrollability = () => {
     if (carouselRef.current) {
@@ -94,6 +100,37 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
     return window && window.innerWidth < 768;
   };
 
+  // Auto-scroll engine with infinite loop
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const autoScroll = () => {
+      if (!isHovering && carousel) {
+        const { scrollLeft, scrollWidth, clientWidth } = carousel;
+        const halfWidth = scrollWidth / 2;
+
+        // Increment scroll position
+        carousel.scrollLeft += scrollSpeedRef.current;
+
+        // Reset when reaching the end of first set
+        if (scrollLeft >= halfWidth - clientWidth / 2) {
+          carousel.scrollLeft = 0;
+        }
+      }
+
+      animationFrameRef.current = requestAnimationFrame(autoScroll);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(autoScroll);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [isHovering]);
+
   useEffect(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = initialScroll;
@@ -107,14 +144,15 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
         className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] py-5"
         ref={carouselRef}
         onScroll={checkScrollability}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
       >
         <div
           className={cn(
-            "flex flex-row justify-start gap-4 pl-3",
-            "max-w-7xl mx-auto"
+            "flex flex-row justify-start gap-4 pl-3"
           )}
         >
-          {items.map((item, index) => {
+          {duplicatedItems.map((item, index) => {
             return (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -123,17 +161,16 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
                   y: 0,
                   transition: {
                     duration: 0.5,
-                    delay: 0.2 * index,
+                    delay: 0.2 * (index % items.length),
                     ease: "easeOut",
-                    once: true,
                   },
                 }}
                 key={`card-${index}`}
-                className="last:pr-[5%] md:last:pr-[33%] rounded-3xl"
+                className="rounded-3xl"
               >
                 {React.cloneElement(item, {
                   onCardClose: () => {
-                    return handleCardClose(index);
+                    return handleCardClose(index % items.length);
                   },
                 })}
               </motion.div>
