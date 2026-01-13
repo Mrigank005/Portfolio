@@ -125,7 +125,6 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
                     duration: 0.5,
                     delay: 0.2 * index,
                     ease: "easeOut",
-                    once: true,
                   },
                 }}
                 key={`card-${index}`}
