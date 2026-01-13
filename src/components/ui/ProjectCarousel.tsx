@@ -25,6 +25,7 @@ interface iCarouselProps {
     index: number;
     layout?: boolean;
     onCardClose: () => void;
+    onCardOpen: () => void;
   }>[];
   initialScroll?: number;
 }
@@ -58,6 +59,7 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [isHovering, setIsHovering] = React.useState(false);
+  const [isAnyCardOpen, setIsAnyCardOpen] = React.useState(false);
   const animationFrameRef = React.useRef<number | null>(null);
   const scrollSpeedRef = React.useRef(0.5); // pixels per frame
 
@@ -85,6 +87,7 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   };
 
   const handleCardClose = (index: number) => {
+    setIsAnyCardOpen(false);
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 230 : 384;
       const gap = isMobile() ? 4 : 8;
@@ -106,7 +109,7 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
     if (!carousel) return;
 
     const autoScroll = () => {
-      if (!isHovering && carousel) {
+      if (!isHovering && !isAnyCardOpen && carousel) {
         const { scrollLeft, scrollWidth, clientWidth } = carousel;
         const halfWidth = scrollWidth / 2;
 
@@ -129,7 +132,7 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isHovering]);
+  }, [isHovering, isAnyCardOpen]);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -139,7 +142,7 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   }, [initialScroll]);
 
   return (
-    <div className="relative w-full mt-10">
+    <div className="relative w-full mt-10 min-h-[550px]">
       <div
         className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] py-5"
         ref={carouselRef}
@@ -168,12 +171,13 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
                   },
                 }}
                 key={`card-${index}`}
-                className="rounded-3xl"
+                className="rounded-3xl shrink-0"
               >
                 {React.cloneElement(item, {
                   onCardClose: () => {
                     return handleCardClose(index % items.length);
                   },
+                  onCardOpen: () => setIsAnyCardOpen(true),
                 })}
               </motion.div>
             );
@@ -205,16 +209,19 @@ export const ProjectCard = ({
   index,
   layout = false,
   onCardClose = () => {},
+  onCardOpen = () => {},
 }: {
   project: iProject;
   index: number;
   layout?: boolean;
   onCardClose?: () => void;
+  onCardOpen?: () => void;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleExpand = () => {
+    onCardOpen();
     return setIsExpanded(true);
   };
   
