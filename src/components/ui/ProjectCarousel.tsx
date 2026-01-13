@@ -25,7 +25,6 @@ interface iCarouselProps {
     index: number;
     layout?: boolean;
     onCardClose: () => void;
-    onCardOpen: () => void;
   }>[];
   initialScroll?: number;
 }
@@ -58,13 +57,6 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
-  const [isHovering, setIsHovering] = React.useState(false);
-  const [isAnyCardOpen, setIsAnyCardOpen] = React.useState(false);
-  const animationFrameRef = React.useRef<number | null>(null);
-  const scrollSpeedRef = React.useRef(0.5); // pixels per frame
-
-  // Duplicate items for infinite scroll
-  const duplicatedItems = [...items, ...items];
 
   const checkScrollability = () => {
     if (carouselRef.current) {
@@ -87,7 +79,6 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   };
 
   const handleCardClose = (index: number) => {
-    setIsAnyCardOpen(false);
     if (carouselRef.current) {
       const cardWidth = isMobile() ? 230 : 384;
       const gap = isMobile() ? 4 : 8;
@@ -103,37 +94,6 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
     return window && window.innerWidth < 768;
   };
 
-  // Auto-scroll engine with infinite loop
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const autoScroll = () => {
-      if (!isHovering && !isAnyCardOpen && carousel) {
-        const { scrollLeft, scrollWidth, clientWidth } = carousel;
-        const halfWidth = scrollWidth / 2;
-
-        // Increment scroll position
-        carousel.scrollLeft += scrollSpeedRef.current;
-
-        // Reset when reaching the end of first set
-        if (scrollLeft >= halfWidth - clientWidth / 2) {
-          carousel.scrollLeft = 0;
-        }
-      }
-
-      animationFrameRef.current = requestAnimationFrame(autoScroll);
-    };
-
-    animationFrameRef.current = requestAnimationFrame(autoScroll);
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-    };
-  }, [isHovering, isAnyCardOpen]);
-
   useEffect(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = initialScroll;
@@ -142,22 +102,19 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
   }, [initialScroll]);
 
   return (
-    <div className="relative w-full mt-10 min-h-[550px]">
+    <div className="relative w-full mt-10">
       <div
         className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none] py-5"
         ref={carouselRef}
         onScroll={checkScrollability}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-        onTouchStart={() => setIsHovering(true)}
-        onTouchEnd={() => setIsHovering(false)}
       >
         <div
           className={cn(
-            "flex flex-row justify-start gap-4 pl-3"
+            "flex flex-row justify-start gap-4 pl-3",
+            "max-w-7xl mx-auto"
           )}
         >
-          {duplicatedItems.map((item, index) => {
+          {items.map((item, index) => {
             return (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -166,18 +123,18 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
                   y: 0,
                   transition: {
                     duration: 0.5,
-                    delay: 0.2 * (index % items.length),
+                    delay: 0.2 * index,
                     ease: "easeOut",
+                    once: true,
                   },
                 }}
                 key={`card-${index}`}
-                className="rounded-3xl shrink-0"
+                className="last:pr-[5%] md:last:pr-[33%] rounded-3xl"
               >
                 {React.cloneElement(item, {
                   onCardClose: () => {
-                    return handleCardClose(index % items.length);
+                    return handleCardClose(index);
                   },
-                  onCardOpen: () => setIsAnyCardOpen(true),
                 })}
               </motion.div>
             );
@@ -209,19 +166,16 @@ export const ProjectCard = ({
   index,
   layout = false,
   onCardClose = () => {},
-  onCardOpen = () => {},
 }: {
   project: iProject;
   index: number;
   layout?: boolean;
   onCardClose?: () => void;
-  onCardOpen?: () => void;
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleExpand = () => {
-    onCardOpen();
     return setIsExpanded(true);
   };
   
@@ -370,7 +324,7 @@ export const ProjectCard = ({
           transition: { duration: 0.3, ease: "easeOut" },
         }}
       >
-        <div className="rounded-2xl bg-gradient-to-br from-deep-charcoal to-deep-charcoal/90 border border-warm-light-gray/10 h-[520px] w-[85vw] md:w-96 shrink-0 overflow-hidden flex flex-col relative z-10 shadow-lg hover:shadow-sunset-coral/20 transition-all">
+        <div className="rounded-2xl bg-gradient-to-br from-deep-charcoal to-deep-charcoal/90 border border-warm-light-gray/10 h-[520px] w-80 md:w-96 overflow-hidden flex flex-col relative z-10 shadow-lg hover:shadow-sunset-coral/20 transition-all">
           {/* Project Image */}
           <div className="w-full h-56 relative overflow-hidden bg-warm-light-gray/5">
             <img
