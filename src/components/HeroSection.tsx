@@ -20,17 +20,17 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center lg:text-left">
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-warm-light-gray">
-            Mrigank SIngh
+            Mrigank Singh
           </h1>
 
           {/* Subheading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 bg-gradient-to-r from-sunset-coral to-muted-peach bg-clip-text text-transparent">
-            AI-Integrated Full Stack Developer
+            Full Stack AI Developer
           </h2>
 
           {/* Description */}
           <h3 className="text-warm-light-gray/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-            A <span className="text-sunset-coral font-semibold">Sophomore Student</span> from Dehradun, India with <span className="text-sunset-coral font-semibold">3 patents</span> filed. Building <span className="text-sunset-coral font-semibold">AI integrated FullStack Solutions</span> and <span className="text-sunset-coral font-semibold">RAG Chatbots</span>.
+            A Sophomore Student from <span className="text-sunset-coral font-semibold">Dehradun, India</span> with <span className="text-sunset-coral font-semibold">3 patents</span> filed. Building <span className="text-sunset-coral font-semibold">AI integrated FullStack Solutions</span> and <span className="text-sunset-coral font-semibold">RAG Chatbots</span>.
           </h3>
 
           {/* CTA Buttons */}
