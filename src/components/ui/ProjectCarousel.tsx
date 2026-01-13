@@ -146,6 +146,8 @@ export const ProjectCarousel = ({ items, initialScroll = 0 }: iCarouselProps) =>
         onScroll={checkScrollability}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
+        onTouchStart={() => setIsHovering(true)}
+        onTouchEnd={() => setIsHovering(false)}
       >
         <div
           className={cn(
@@ -361,7 +363,7 @@ export const ProjectCard = ({
           transition: { duration: 0.3, ease: "easeOut" },
         }}
       >
-        <div className="rounded-2xl bg-gradient-to-br from-deep-charcoal to-deep-charcoal/90 border border-warm-light-gray/10 h-[520px] w-80 md:w-96 overflow-hidden flex flex-col relative z-10 shadow-lg hover:shadow-sunset-coral/20 transition-all">
+        <div className="rounded-2xl bg-gradient-to-br from-deep-charcoal to-deep-charcoal/90 border border-warm-light-gray/10 h-[520px] w-[85vw] md:w-96 shrink-0 overflow-hidden flex flex-col relative z-10 shadow-lg hover:shadow-sunset-coral/20 transition-all">
           {/* Project Image */}
           <div className="w-full h-56 relative overflow-hidden bg-warm-light-gray/5">
             <img
