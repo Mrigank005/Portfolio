@@ -19,4 +19,8 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // This resolves the "Missing source maps" warning
+    sourcemap: true,
+  },
 }));
