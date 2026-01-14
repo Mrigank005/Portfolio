@@ -1,11 +1,17 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
+import { useChat } from '@/context/ChatContext';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openSidebar } = useChat();
   
   // Handle scroll effect
   useEffect(() => {
@@ -50,25 +56,50 @@ const Navigation = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="https://drive.google.com/file/d/16GKbLN8_OpnhnweKEPBaWwHrxuatt6Ny/preview" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="cosmic-secondary-button text-sm"
-          >
-            Resume
-          </a>
+          
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button 
+                onClick={openSidebar}
+                className="cosmic-secondary-button text-sm gap-2 flex items-center"
+              >
+                <Sparkles size={16} />
+                AI Assistant
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Hey!! Feel free to question my AI Assistant about me.</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
         
         {/* Mobile Menu Button */}
-        <Button 
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-warm-light-gray hover:bg-white/10"
-          onClick={toggleMenu}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
+        <div className="md:hidden flex items-center gap-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={openSidebar}
+                    className="text-sunset-coral hover:bg-white/10"
+                  >
+                    <Sparkles size={20} />
+                  </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                 <p>Hey!! Feel free to question my AI Assistant about me.</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Button 
+              variant="ghost"
+              size="icon"
+              className="text-warm-light-gray hover:bg-white/10"
+              onClick={toggleMenu}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+        </div>
       </div>
       
       {/* Mobile Menu */}
@@ -88,15 +119,6 @@ const Navigation = () => {
               {link.name}
             </a>
           ))}
-          <a 
-            href="https://drive.google.com/file/d/16GKbLN8_OpnhnweKEPBaWwHrxuatt6Ny/preview" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="cosmic-secondary-button self-start my-2 text-sm"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Resume
-          </a>
         </div>
       </div>
     </nav>

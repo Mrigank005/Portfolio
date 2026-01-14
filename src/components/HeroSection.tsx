@@ -1,9 +1,17 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Sparkles } from "lucide-react";
+import { useChat } from '../context/ChatContext';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const HeroSection = () => {
+  const { openSidebar } = useChat();
+
   return (
     <section id="hero" className="min-h-screen flex flex-col justify-center pt-16 relative overflow-hidden">
       {/* Animated GIF Background */}
@@ -44,6 +52,21 @@ const HeroSection = () => {
               <Download size={18} />
               View Resume
             </a>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={openSidebar}
+                  className="cosmic-secondary-button w-full sm:w-auto flex items-center justify-center gap-2"
+                >
+                  <Sparkles size={18} />
+                  AI Assistant
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Hey!! Feel free to question my AI Assistant about me.</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
         </div>
       </div>
