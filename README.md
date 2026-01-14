@@ -1,6 +1,6 @@
 # 🚀 Mrigank Singh | AI-Integrated Portfolio
 
-![Portfolio Banner](https://via.placeholder.com/1200x600?text=Mrigank+Singh+Portfolio+Banner)
+![Portfolio Banner](public/Portfolio-Thumbnail.webp)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-blue?style=for-the-badge&logo=vercel)](https://mrigank-portfolio-website.vercel.app/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
