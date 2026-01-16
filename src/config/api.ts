@@ -1,1 +1,1 @@
-export const API_URL = "https://portfolio-chatbot-api-n48i.onrender.com";
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
