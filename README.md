@@ -37,7 +37,7 @@ Beyond displaying my projects (DASES, MealMatch) and my 3 patents, this site fea
 * **Markdown:** `react-markdown` with `remark-gfm`
 * **Deployment:** Vercel
 
-### Backend ([Separate Service](https://github.com/Mrigank005/Portfolio-Backend))
+### Backend ([Separate Repo](https://github.com/Mrigank005/Portfolio-Backend))
 * **API:** FastAPI (Python)
 * **LLM:** Google Gemini 2.0 Flash Lite Preview
 * **Vector DB:** Pinecone (768 Dimensions)
