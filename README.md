@@ -42,7 +42,7 @@ Beyond displaying my projects (DASES, MealMatch) and my 3 patents, this site fea
 * **LLM:** Google Gemini 2.0 Flash Lite Preview
 * **Vector DB:** Pinecone (768 Dimensions)
 * **SDK:** Google GenAI SDK v1.0
-* **Deployment:** Render
+* **Deployment:** Hugging Face Spaces
 
 ## 🧠 AI Architecture
 
